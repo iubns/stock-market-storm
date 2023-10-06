@@ -20,7 +20,11 @@ export default function App() {
 
   function setTimes() {
     const timeGap = dayjs().diff(REAL_START_TIME)
-    const timeIndex = timeGap / TIME_TICK
+    var timeIndex = timeGap / TIME_TICK
+
+    if (timeIndex > 10) {
+      timeIndex = 10
+    }
     setCurrentTimeIndex(Math.floor(timeIndex))
 
     const displayTimeDate = dayjs(DISPLAY_START_TIME).add(timeGap)
