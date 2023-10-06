@@ -3,7 +3,7 @@ import StockData from "./data"
 import { useEffect, useState } from "react"
 import dayjs from "dayjs"
 
-const REAL_START_TIME = dayjs("2023-10-06 24:00:00")
+const REAL_START_TIME = dayjs("2023-10-07 01:05:00")
 const DISPLAY_START_TIME = "2023-10-08 12:00:00"
 const TIME_TICK = 1000 * 60 * 3
 
@@ -22,8 +22,8 @@ export default function App() {
     const timeGap = dayjs().diff(REAL_START_TIME)
     var timeIndex = timeGap / TIME_TICK
 
-    if (timeIndex > 10) {
-      timeIndex = 10
+    if (timeIndex >= 10) {
+      timeIndex = 9
     }
     setCurrentTimeIndex(Math.floor(timeIndex))
 
